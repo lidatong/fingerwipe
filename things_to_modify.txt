@@ -1,0 +1,21 @@
+
+
+
+
+Plugin UI
+- Design
+
+Actual overrides
+- Demolish user agent string
+- Minor version of chrome
+- Time() random delay
+- Change OS
+- Change resolution
+- Hide plugins
+
+Webserver
+- Prints each of the user agent string
+
+
+Minimum working product finished by Friday
+Paper over weekend
