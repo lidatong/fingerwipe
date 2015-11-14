@@ -1,13 +1,15 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
-  "version": "0.0.1",
+  "name": "Unprint Me",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Bring private browsing to the server.
+
+  Masks your user agent string and other identifying information from your browser, preventing you from being tracked across the web.",
+  "homepage_url": "https://github.com/lidatong/unprintme",
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "icons/fp16.png",
+    "48": "icons/fp48.png",
+    "128": "icons/fp128.png"
   },
   "default_locale": "en",
   "background": {
@@ -16,7 +18,7 @@
   },
   "options_page": "src/options_custom/index.html",
   "browser_action": {
-    "default_icon": "icons/icon19.png",
+    "default_icon": "icons/fp19.png",
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
