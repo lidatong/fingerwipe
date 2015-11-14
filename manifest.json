@@ -24,9 +24,12 @@
     "contextMenus",
     "cookies",
     "notifications",
-    "geolocation"
+	"geolocation",
+	"webRequest", "webRequestBlocking", "<all_urls>"
   ],
-  "omnibox": {
+  "web_accessible_resources": [
+	"src/inject/injected.js"
+  ], "omnibox": {
     "keyword": "extensionizr"
   },
   "content_scripts": [

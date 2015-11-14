@@ -1,13 +1,20 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
+var actualCode;
 
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
+var xhr = new XMLHttpRequest();
+xhr.open('GET', chrome.extension.getURL('src/inject/injected.js'), true);
+xhr.onreadystatechange = function()
+{
+    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200)
+    {
+		console.log(xhr)
+        actualCode = xhr.responseText
+		
+		
+		console.log("Actual code = \n" + actualCode)
 
-	}
-	}, 10);
-});
+		document.documentElement.setAttribute('onreset', actualCode);
+		document.documentElement.dispatchEvent(new CustomEvent('reset'));
+		document.documentElement.removeAttribute('onreset');
+    }
+};
+xhr.send();
