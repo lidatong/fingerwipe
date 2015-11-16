@@ -51,6 +51,7 @@
     ],
     "js": [
       "js/jquery/jquery.min.js", "src/inject/inject.js", "src/browser_action/browser_action.js"
-    ]
+    ],
+    "run_at": "document_start"
   }]
 }
