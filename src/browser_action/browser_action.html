@@ -12,27 +12,71 @@
 <style type="text/css">
 #mainPopup {
   padding: 10px;
-  height: 200px;
-  width: 400px;
+  height: 400px;
+  width: 300px;
 }
 
 h1 {
   font-size: 2em;
+  font-family: Menlo;
+  border: 3px solid #21ce99;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#center {
+  text-align: center;
+  font-size: 30px;
+}
+
+#checker {
+  text-align: center;
+}
+
+.header {
+  background-color: white;
+}
+
+#coolborder {
+  border-bottom: 3px solid #009165;
 }
 </style>
 
 <body>
 
   <div id="mainPopup">
-    <h1>Unprint Me</h1>
-    <input type="checkbox" name="user-agent"> Mask user-agent <br>
-    <input type="checkbox" name="user-agent"> Mask plugins <br>
-    <input type="checkbox" name="user-agent"> Override javascript <br>
+    <div class="header">
+      <h1 id="center">Unprint Me</h1>
+    </div>
+    <div class="checkboxes">
+      <h4 id="coolborder">User agent masking</h4>
 
+      <input id="low" type="checkbox" name="user-agent"> Masking level: low
+      <br>
+      <input id="moderate" type="checkbox" name="user-agent"> Masking level: moderate
+      <br>
+      <input id="high" type="checkbox" name="user-agent"> Masking level: high
+      <br>
+      <input id="demolish" type="checkbox" name="user-agent"> Demolish it!
+      <br>
+      <br>
+      <h4 id="coolborder">Other privacy measures</h4>
+
+      <input id="checker" type="checkbox" name="plugins"> Mask plugins
+      <br>
+      <input id="checker" type="checkbox" name="override"> Override javascript
+      <br>
+    </div>
   </div>
 
 
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="browser_action.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </body>
