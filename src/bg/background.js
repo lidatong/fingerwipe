@@ -19,11 +19,11 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
         function(details) {
           for (var i = 0; i < details.requestHeaders.length; ++i) {
             if (details.requestHeaders[i].name === 'User-Agent') {
-				newUserAgent = updateUserAgent(details.requestHeaders[i].value)
+				newUserAgent = updateUserAgent(details.requestHeaders[i].value);
 				if(newUserAgent) //update to new user agent
-					details.requestHeaders[i].value = newUserAgent
+					details.requestHeaders[i].value = newUserAgent;
 				else //Delete user agent entirely
-					details.requestHeaders.splice(i,1)
+					details.requestHeaders.splice(i,1);
 				break;
             }
           }
@@ -36,24 +36,25 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 
 	
 userAgentParse = function(userAgent){
-	var userAgentRegex = /([^ ]*)( \([^\)]*\))? ?/g
-	var userAgentComponents = []
-	var prevIndex = -1
+	var userAgentRegex = /([^ ]*)( \([^\)]*\))? ?/g;
+	var userAgentComponents = [];
+	var prevIndex = -1;
 	while (userAgentRegex.lastIndex != prevIndex) {
-		prevIndex = userAgentRegex.lastIndex
-		match = userAgentRegex.exec(userAgent)
-		userAgentComponents.push(match[0])
+		prevIndex = userAgentRegex.lastIndex;
+		match = userAgentRegex.exec(userAgent);
+		userAgentComponents.push(match[0]);
 		msg = 'Match : ' + match[0] + '\nNext match starts at ' + userAgentRegex.lastIndex;
 		console.log(msg);
 	}
-	return userAgentComponents
+	return userAgentComponents;
 }
 		
 updateUserAgent = function(userAgent){
-	console.log("Old user agent: " + userAgent)
-	var components = userAgentParse(userAgent)
-	var newUA = components[0] + components[1]
-	console.log("New user agent: " + newUA)
-	//return newUA
+	console.log("Old user agent: " + userAgent);
+	var components = userAgentParse(userAgent);
+	var newUA = components[0] + components[1];
+	console.log("New user agent: " + newUA);
+	//return newUA //Don't forget to update UA in injected.js
 	return userAgent
+	//return navigator.userAgent.replace(/\([^)]+\)/, '(Windows NT 5.1)');
 }
