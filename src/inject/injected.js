@@ -74,7 +74,7 @@ console.log("Overloaded Date!");
     // Pretend to be Windows XP
     Object.defineProperties(modifiedNavigator, {
         userAgent: {
-            value: navigator.userAgent.replace(/\([^)]+\)/, '(Windows NT 5.1)'),
+            value: "userAgentReplace",
             configurable: false,
             enumerable: true,
             writable: false
@@ -98,4 +98,10 @@ console.log("Overloaded Date!");
             writable: false
 		}
     });
+
 })();
+console.log("filler");
+console.log("filler");
+console.log("filler");
+console.log("filler");
+console.log("userAgentReplace");

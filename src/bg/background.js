@@ -1,5 +1,3 @@
-
-
 // list of chrome releases:
 // http://googlechromereleases.blogspot.com/search?updated-max=2015-09-29T17:07:00-07:00&max-results=10&start=30&by-date=false
 
@@ -10,6 +8,8 @@ var chromeVersions = ["Chrome/46.0.2490.80 ", "Chrome/46.0.2490.71 ", "Chrome/45
 var macVersions = ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) ", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) ", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) ", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) "];
 
 var demolishList = ["I do not consent to this search", "This is a real user agent string", "{{null}}", "{{undefined}}"];
+
+var currentUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36";
 
 
 //example of using a message handler from the inject scripts
@@ -48,6 +48,12 @@ chrome.extension.onMessage.addListener(
         }
         sendResponse({
           gotit: "demolish!"
+        });
+        break;
+      case "giveme":
+        console.log("sending back: ", currentUserAgent);
+        sendResponse({
+          gotit: currentUserAgent
         });
         break;
     }
@@ -109,12 +115,16 @@ updateUserAgent = function(userAgent, userAgentLevel) {
 
   if (userAgentLevel === "low") {
     newUA = components[0] + components[1] + chromeVersions[chromeIndex] + components[3];
+    currentUserAgent = newUA;
   } else if (userAgentLevel === "moderate") {
     newUA = macVersions[osIndex] + components[1] + chromeVersions[chromeIndex] + components[3];
+    currentUserAgent = newUA;
   } else if (userAgentLevel === "high") {
     newUA = macVersions[osIndex] + components[1] + chromeVersions[chromeIndex];
+    currentUserAgent = newUA;
   } else if (userAgentLevel === "demolish") {
     newUA = demolishList[demolishIndex];
+    currentUserAgent = newUA;
   }
 
   console.log("New user agent: " + newUA);
