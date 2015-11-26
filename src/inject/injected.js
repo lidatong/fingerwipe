@@ -79,18 +79,6 @@ console.log("Overloaded Date!");
             enumerable: true,
             writable: false
         },
-        appVersion: {
-            value: navigator.appVersion.replace(/\([^)]+\)/, '(Windows NT 5.1)'),
-            configurable: false,
-            enumerable: true,
-            writable: false
-        },
-        platform: {
-            value: 'Win32',
-            configurable: false,
-            enumerable: true,
-            writable: false
-        },
 		plugins: {
             value: Array(),
             configurable: false,
